@@ -5,19 +5,25 @@ import { Routing } from "./app.routing";
 import { HttpClientModule } from "@angular/common/http";
 //
 import { AppComponent } from "./app.component";
-import { MainComponent } from "./main/main.component";
-import { LoginComponent } from "./login/login.component";
-import { DashboardComponent } from "./dashboard/dashboard.component";
-import { AccountComponent } from "./account/account.component";
-import { ChargestatusComponent } from "./chargestatus/chargestatus.component";
-import { ConfigComponent } from "./config/config.component";
-import { HistoryComponent } from "./history/history.component";
-import { OperationinfraComponent } from "./operationinfra/operationinfra.component";
-import { ReportComponent } from "./report/report.component";
+import { ComponentComponent } from "./components/component.component";
+//
+import { MainComponent } from "./components/main/main.component";
+import { LoginComponent } from "./components/login/login.component";
+import { DashboardComponent } from "./components/dashboard/dashboard.component";
+import { AccountComponent } from "./components/account/account.component";
+import { ChargestatusComponent } from "./components/chargestatus/chargestatus.component";
+import { ConfigComponent } from "./components/config/config.component";
+import { HistoryComponent } from "./components/history/history.component";
+import { OperationinfraComponent } from "./components/operationinfra/operationinfra.component";
+import { ReportComponent } from "./components/report/report.component";
+//
+import { FormsModule } from '@angular/forms';
+import { AppService } from './app.service';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ComponentComponent,
     MainComponent,
     LoginComponent,
     DashboardComponent,
@@ -28,9 +34,9 @@ import { ReportComponent } from "./report/report.component";
     OperationinfraComponent,
     ReportComponent
   ],
-  imports: [BrowserModule, Routing, HttpClientModule],
+  imports: [BrowserModule, Routing, HttpClientModule, FormsModule],
 
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
