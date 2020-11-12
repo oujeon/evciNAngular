@@ -23,7 +23,6 @@ export class AppComponent implements OnInit {
     // 현재 router 경로
     am.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        console.log("event : ", event.url);
       }
     });
     // 로그인 체크
@@ -34,23 +33,17 @@ export class AppComponent implements OnInit {
       withCredentials: true
     })
       .subscribe(res => {
-        //
-        console.log(res.code);
-        //
+        // 
         if (res.code === 0) {
           this.router.navigateByUrl("/dashboard").then(e => {
             if (e) {
-              console.log("Navigation is successful!");
             } else {
-              console.log("Navigation has failed!");
             }
           });
         } else {
           this.router.navigateByUrl("/login").then(e => {
             if (e) {
-              console.log("Navigation is successful!");
             } else {
-              console.log("Navigation has failed!");
             }
           });
         }

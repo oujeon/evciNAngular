@@ -47,9 +47,7 @@ export class LoginComponent {
       withCredentials: true
     }
     let res1 = await am.http.post<any>(URL, body.toString(), header).toPromise();
-    //
-    console.log(res1);
-    //   
+    //  
     if (res1.code === 200) {
       //
       this.login.authority = res1.user.authorities[0].authority;
@@ -62,9 +60,7 @@ export class LoginComponent {
       //
       this.router.navigateByUrl("/dashboard").then(e => {
         if (e) {
-          console.log("Navigation is successful!");
         } else {
-          console.log("Navigation has failed!");
         }
       });
     } else {

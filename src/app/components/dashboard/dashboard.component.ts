@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
       withCredentials: true
     }
     let res = await am.http.get<any>(URL, header).toPromise();
-    console.log(res);
+    //
     if (res.code === 200) {
       window.location.href = "http://localhost:4200";
     }
