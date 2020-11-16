@@ -1,34 +1,113 @@
-<div>
-    <div style="
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    ">
-        <span>
-            <img style="width: 220px; margin: 25px auto 0;" [src]="login.logo" alt="" /></span>
-        <div style="width: 220px; margin: 25px auto 0;">
-            <form>
-                <fieldset>
-                    <legend></legend>
-                    <span>
-                        <input placeholder="아이디" [(ngModel)]="login.userId" [ngModelOptions]="{standalone: true}"
-                            (ngModelChange)="setUserId($event)" />
-                        <p>아이디를 입력해주세요</p>
-                    </span>
-                    <span>
-                        <input type="password" placeholder="비밀번호" [(ngModel)]="login.password"
-                            [ngModelOptions]="{standalone: true}" (ngModelChange)="setPassword($event)" />
-                        <p>비밀번호를 입력해주세요</p>
-                        <p>로그인 정보를 확인해주세요</p>
-                    </span>
-                    <button type="button" style="width: 100%;" (click)='fnLogin()'>
-                        <span>로그인</span>
-                    </button>
-                    <input type="checkbox" id="rememberId" />
-                    <label for="rememberId"><span>아이디 기억하기</span></label>
-                </fieldset>
-            </form>
+<!-- wrapper -->
+<div id="wrapper" class="login">
+    <!-- wrapper_body -->
+    <div id="wrapper_body">
+        <!-- login_area -->
+        <div class="login_area">
+            <span class="logo"><img src="assets/images/common/logo_login.png" alt="GS 칼텍스 EV 충전 관제 시스템"></span>
+            <div class="login_box">
+                <form name="" method="" action="">
+                    <fieldset>
+                        <legend></legend>
+                        <span class="check_error has_error e_typ2">
+                            <!-- 필수입력 에러 발생 시  has_error  와 e_typ1 ~ e_typ2 추가 -->
+                            <input type="text" placeholder="아이디">
+                            <p class="required_txt e_typ1">아이디를 입력해주세요</p>
+                        </span>
+                        <span class="check_error has_error e_typ2">
+                            <!-- 필수입력 에러 발생 시  has_error  와 e_typ1 ~ e_typ2 추가 -->
+                            <input type="password" name="" id="" placeholder="비밀번호">
+                            <p class="required_txt e_typ1">비밀번호를 입력해주세요</p>
+                            <p class="required_txt e_typ2">로그인 정보를 확인해주세요</p>
+                        </span>
+                        <button type="button" class="btn btn_size_full btn_c_gray btn_round"><span>로그인</span></button>
+                        <input type="checkbox" name="" id="rememberId"><label for="rememberId"><span>아이디
+                                기억하기</span></label>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="comment_box">
+                <dl>
+                    <dt>고객센터</dt>
+                    <dd>
+                        <ul>
+                            <li><span class="tit">계정 관련 문의 : </span><span class="txt">02-1588-1588</span><span
+                                    class="txt">평일 09:00~18:00 (토요일 및 공휴일 휴무)</span></li>
+                            <li><span class="tit">충전 관련 문의 : </span><span class="txt">02-1577-1577</span><span
+                                    class="txt">24시간 가능 (연중무휴)</span></li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <!--// login_area -->
+    </div>
+    <!--// wrapper_body -->
+</div>
+<!--// wrapper -->
+
+<!-- 팝업 영역 -->
+<!-- 비밀번호 변경 -->
+<div class="popup_wrap password_pop" style="display: none;">
+    <!-- is_active -->
+    <div class="dim"></div>
+    <div class="popup_cont">
+        <div class="popup_head">
+            <h2 class="h2_popTit">비밀번호 변경</h2>
+            <button type="button" class="close_popup"><span class="hide">닫기</span></button>
+        </div>
+        <div class="popup_body">
+            <p class="pw_comment">회원님의 개인정보보호를 위해 주기적(최소30일)으로 비밀번호를 변경해 주세요.<br>아이디와 주민등록번호, 생일, 전화번호 등 개인정보와 관련된
+                숫자, 연속된 숫자, 반복된 문자 등 다른 사람이 쉽게 알아낼 수 있는 비밀번호는 개인정보 유출의 위험이 높으므로 사용을 자제해주시기 바랍니다.</p>
+            <div class="tbl_wrap inner">
+                <table class="tbl_row_typ1">
+                    <colgroup>
+                        <col style="width:115px;">
+                        <col style="width:*">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row"><span class="is_required">현재 비밀번호</span></th>
+                            <td>
+                                <span class="check_error w100p has_error e_typ2">
+                                    <!-- 필수입력 에러 발생 시  has_error 추가-->
+                                    <input type="password" name="" id="" placeholder="" class="w100p" />
+                                    <p class="required_txt">비밀번호 정보를 확인해주세요</p>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><span class="is_required">새 비밀번호</span></th>
+                            <td>
+                                <span class="check_error w100p has_error e_typ2">
+                                    <!-- 필수입력 에러 발생 시  has_error 와 e_typ1 ~ e_typ2 추가 -->
+                                    <input type="password" name="" id="" placeholder="8~13자 영문자, 숫자, 특수문자 혼합"
+                                        class="w100p" />
+                                    <p class="required_txt e_typ1">8~13자 영문자, 숫자, 특수문자 혼합</p>
+                                    <p class="required_txt e_typ2">최근에 사용한 비밀번호는 사용할 수 없습니다.</p>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><span class="is_required">새 비밀번호확인</span></th>
+                            <td>
+                                <span class="check_error w100p">
+                                    <!-- 필수입력 에러 발생 시  has_error  추가 -->
+                                    <input type="password" name="" id="" placeholder="" class="w100p" />
+                                    <p class="required_txt">비밀번호 불일치</p>
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="btn_wrap">
+                <button type="button" id="close_filter" class="btn btn_round btn_size_85"><span>취소</span></button>
+                <button type="button" id="close_filter"
+                    class="btn btn_c_gray btn_round btn_size_85"><span>저장</span></button>
+            </div>
         </div>
     </div>
 </div>
+<!--// 비밀번호 변경 -->
+<!--// 팝업 영역 -->
