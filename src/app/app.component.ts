@@ -34,16 +34,26 @@ export class AppComponent implements OnInit {
     })
       .subscribe(res => {
         // 
+
+        console.log(res);
+        console.log(res);
+        console.log(res);
+        console.log(res);
+        // 
         if (res.code === 0) {
           this.router.navigateByUrl("/dashboard").then(e => {
             if (e) {
+              console.log(e);
             } else {
+              console.log(e);
             }
           });
         } else {
           this.router.navigateByUrl("/login").then(e => {
             if (e) {
+              console.log(e);
             } else {
+              console.log(e);
             }
           });
         }

@@ -31,7 +31,7 @@ export class LoginComponent {
   ngOnInit() {
   }
   //
-  async fnLogin(value): Promise<any> {
+  async fnLogin(): Promise<any> {
     let am = this;
     // 
     let URL = `http://evci.duckdns.org:9090/v1/login`;
@@ -47,7 +47,7 @@ export class LoginComponent {
       withCredentials: true
     }
     let res1 = await am.http.post<any>(URL, body.toString(), header).toPromise();
-    //  
+    // 
     if (res1.code === 200) {
       //
       this.login.authority = res1.user.authorities[0].authority;
@@ -59,15 +59,14 @@ export class LoginComponent {
       this.login.msg = res1.msg;
       //
       this.router.navigateByUrl("/dashboard").then(e => {
-        if (e) {
-        } else {
-        }
+
       });
     } else {
       this.login.code = res1.code;
       this.login.msg = res1.msg;
     }
   }
+  //
   fnSample: {
     // // 
     // this.checkLogin()

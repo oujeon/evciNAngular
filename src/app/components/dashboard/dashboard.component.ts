@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
   public ngOnInit() {
   }
   //
-  async fnLogOut(value): Promise<any> {
+  async fnLogOut(): Promise<any> {
     let am = this;
     // 
     let URL = `http://evci.duckdns.org:9090/v1/logout`;
