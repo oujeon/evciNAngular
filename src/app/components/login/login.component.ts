@@ -12,20 +12,20 @@ import { Router } from '@angular/router';
 // LoginComponent
 export class LoginComponent {
   // state
-  mainLocalData: {
+  mainLocalData = {
     image: {
-      logo: '../../../assets/logo.jpg';
-    };
+      logo: '../../../assets/logo.jpg',
+    },
     class: {
-      errorMessage1: false;
-      errorMessage2: false;
-      errorMessage3: false;
-    };
+      errorMessage1: false,
+      errorMessage2: false,
+      errorMessage3: false,
+    },
     data: {
-      userId: null;
-      password: null;
-      rememberId: false;
-    };
+      userId: null,
+      password: null,
+      rememberId: false,
+    },
   };
   // constructor
   constructor(private http: HttpClient, private router: Router) {
@@ -38,37 +38,40 @@ export class LoginComponent {
     //
   }
   //
-  setUserId(value): void {
+  setUserIdFn(value): void {
     //
     //
   }
   //
-  getUserId(): string {
+  getUserIdFn(): string {
     let me = this;
     return '';
   }
   //
-  setPassword(value): void {
+  setPasswordFn(value): void {
     //
     //
   }
   //
-  getPassword(): string {
+  getPasswordFn(): string {
     let me = this;
     return '';
   }
   //
-  setRememberId(value): void {
+  setRememberIdFn(value): void {
     //
     //
   }
   //
-  getRememberId(): string {
+  getRememberIdFn(): string {
     let me = this;
     return '';
   }
   //
   doLoginFn(): void {
     let me = this;
+    me.mainLocalData.class.errorMessage1 = true;
+    me.mainLocalData.class.errorMessage2 = true;
+    console.log(me.mainLocalData.data);
   }
 }

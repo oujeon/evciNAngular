@@ -13,27 +13,59 @@
         <form name="" method="" action="">
           <fieldset>
             <legend></legend>
-            <span class="check_error has_error e_typ2">
+            <span
+              [ngClass]="
+                mainLocalData.class.errorMessage1 === true
+                  ? 'check_error has_error e_typ1'
+                  : 'check_error'
+              "
+            >
+              <!-- class="check_error has_error e_typ2" -->
               <!-- 필수입력 에러 발생 시  has_error  와 e_typ1 ~ e_typ2 추가 -->
-              <input type="text" placeholder="아이디" />
+              <input
+                type="text"
+                placeholder="아이디"
+                [(ngModel)]="mainLocalData.data.userId"
+                [ngModelOptions]="{ standalone: true }"
+              />
               <p class="required_txt e_typ1">아이디를 입력해주세요</p>
             </span>
-            <span class="check_error has_error e_typ2">
+            <span
+              [ngClass]="
+                mainLocalData.class.errorMessage2 === true
+                  ? 'check_error has_error e_typ1'
+                  : mainLocalData.class.errorMessage3 === true
+                  ? 'check_error has_error e_typ2'
+                  : 'check_error'
+              "
+            >
+              <!-- class="check_error has_error e_typ2" -->
               <!-- 필수입력 에러 발생 시  has_error  와 e_typ1 ~ e_typ2 추가 -->
-              <input type="password" name="" id="" placeholder="비밀번호" />
+              <input
+                type="password"
+                name=""
+                id=""
+                placeholder="비밀번호"
+                [(ngModel)]="mainLocalData.data.password"
+                [ngModelOptions]="{ standalone: true }"
+              />
               <p class="required_txt e_typ1">비밀번호를 입력해주세요</p>
               <p class="required_txt e_typ2">로그인 정보를 확인해주세요</p>
             </span>
             <button
               type="button"
               class="btn btn_size_full btn_c_gray btn_round"
+              (click)="doLoginFn()"
             >
               <span>로그인</span>
             </button>
-            <input type="checkbox" name="" id="rememberId" /><label
-              for="rememberId"
-              ><span>아이디 기억하기</span></label
-            >
+            <input
+              type="checkbox"
+              name=""
+              id="rememberId"
+              [(ngModel)]="mainLocalData.data.rememberId"
+              [ngModelOptions]="{ standalone: true }"
+            /><label for="rememberId"><span>아이디 기억하기</span></label>
           </fieldset>
         </form>
       </div>
