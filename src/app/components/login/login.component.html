@@ -25,8 +25,10 @@
               <input
                 type="text"
                 placeholder="아이디"
+                maxlength="13"
                 [(ngModel)]="mainLocalData.data.userId"
                 [ngModelOptions]="{ standalone: true }"
+                (ngModelChange)="setUserIdFn($event)"
               />
               <p class="required_txt e_typ1">아이디를 입력해주세요</p>
             </span>
@@ -45,9 +47,11 @@
                 type="password"
                 name=""
                 id=""
+                maxlength="13"
                 placeholder="비밀번호"
                 [(ngModel)]="mainLocalData.data.password"
                 [ngModelOptions]="{ standalone: true }"
+                (ngModelChange)="setPasswordFn($event)"
               />
               <p class="required_txt e_typ1">비밀번호를 입력해주세요</p>
               <p class="required_txt e_typ2">로그인 정보를 확인해주세요</p>
@@ -65,6 +69,7 @@
               id="rememberId"
               [(ngModel)]="mainLocalData.data.rememberId"
               [ngModelOptions]="{ standalone: true }"
+              (ngModelChange)="setRememberIdFn($event)"
             /><label for="rememberId"><span>아이디 기억하기</span></label>
           </fieldset>
         </form>

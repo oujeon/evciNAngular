@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import Utils from '../utils/utils';
 // Component
 @Component({
   selector: 'app-login',
@@ -40,7 +41,9 @@ export class LoginComponent {
   //
   setUserIdFn(value): void {
     //
-    //
+    let me = this;
+    me.mainLocalData.class.errorMessage1 = false;
+    me.mainLocalData.data.userId = Utils.checkUserId(value);
   }
   //
   getUserIdFn(): string {
@@ -50,7 +53,11 @@ export class LoginComponent {
   //
   setPasswordFn(value): void {
     //
-    //
+    let me = this;
+    me.mainLocalData.class.errorMessage2 = false;
+    me.mainLocalData.class.errorMessage3 = false;
+
+    me.mainLocalData.data.password = Utils.checkPassword(value);
   }
   //
   getPasswordFn(): string {
@@ -58,9 +65,17 @@ export class LoginComponent {
     return '';
   }
   //
-  setRememberIdFn(value): void {
+  setRememberIdFn(bln): void {
     //
-    //
+    let me = this;
+    let userId = me.mainLocalData.data.userId;
+    if (bln) {
+      alert(bln);
+      Utils.setCookie('rememberUserId', userId, 365);
+    } else {
+      alert(bln);
+      Utils.setCookie('rememberUserId', '', 0);
+    }
   }
   //
   getRememberIdFn(): string {
@@ -70,8 +85,19 @@ export class LoginComponent {
   //
   doLoginFn(): void {
     let me = this;
-    me.mainLocalData.class.errorMessage1 = true;
-    me.mainLocalData.class.errorMessage2 = true;
-    console.log(me.mainLocalData.data);
+
+    //
+    let userId = me.mainLocalData.data.userId;
+    let password = me.mainLocalData.data.password;
+    //
+    if (userId === '') {
+      me.mainLocalData.class.errorMessage1 = true;
+    }
+    if (password === '') {
+      me.mainLocalData.class.errorMessage2 = true;
+    }
+    if (userId === '' || password === '') {
+      return;
+    }
   }
 }
