@@ -70,10 +70,8 @@ export class LoginComponent {
     let me = this;
     let userId = me.mainLocalData.data.userId;
     if (bln) {
-      alert(bln);
       Utils.setCookie('rememberUserId', userId, 365);
     } else {
-      alert(bln);
       Utils.setCookie('rememberUserId', '', 0);
     }
   }
@@ -81,6 +79,11 @@ export class LoginComponent {
   getRememberIdFn(): string {
     let me = this;
     return '';
+  }
+  enter(event) {
+    if (event.key === 'Enter') {
+      this.doLoginFn();
+    }
   }
   //
   doLoginFn(): void {

@@ -29,6 +29,7 @@
                 [(ngModel)]="mainLocalData.data.userId"
                 [ngModelOptions]="{ standalone: true }"
                 (ngModelChange)="setUserIdFn($event)"
+                (keyup.enter)="enter($event)"
               />
               <p class="required_txt e_typ1">아이디를 입력해주세요</p>
             </span>
@@ -52,6 +53,7 @@
                 [(ngModel)]="mainLocalData.data.password"
                 [ngModelOptions]="{ standalone: true }"
                 (ngModelChange)="setPasswordFn($event)"
+                (keyup.enter)="enter($event)"
               />
               <p class="required_txt e_typ1">비밀번호를 입력해주세요</p>
               <p class="required_txt e_typ2">로그인 정보를 확인해주세요</p>
